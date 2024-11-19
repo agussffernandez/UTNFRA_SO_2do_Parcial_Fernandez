@@ -6,7 +6,6 @@ cd /home/agustina/UTNFRA_SO_2do_Parcial_Fernandez/202406/docker
 # 2. Construir la imagen Docker
 echo "Construyendo la imagen Docker..."
 ./make-build.sh
-
 # 3. Ejecutar el contenedor Docker
 echo "Ejecutando el contenedor Docker..."
 ./run.sh
@@ -18,3 +17,6 @@ docker ps
 # 5. Mensaje final
 echo "La imagen y el contenedor han sido configurados correctamente."
 echo "Puedes acceder a la página en: http://localhost:8080"
+
+echo "Pusheando la imagen a Docker Hub..."
+docker push agussffernandez/web1-Fernandez:latest
