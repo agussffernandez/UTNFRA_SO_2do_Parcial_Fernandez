@@ -17,29 +17,33 @@ wipefs --all ${DISCO1}
 wipefs --all ${DISCO2}
 
 # 2. Paticion de discos
-# Disco de 2GB para LVM
-fdisk ${DISCO1}
-#Le damos todo el espacio a la primer particion primaria
-n
-p
+# Crear partición en /dev/sde (2GB para LVM)
+echo "Creando partición LVM en ${DISCO1}..."
+fdisk ${DISCO1} <<EOF
+o           # Crear tabla de particiones nueva (msdos)
+n           # Nueva partición
+p           # Tipo primaria
+1           # Número de partición
+            # Empezar desde el primer sector
++2G         # Tamaño de la partición (2GB)
+t           # Cambiar tipo de partición
+8e          # LVM (Linux LVM)
+w           # Guardar y salir
+EOF
 
-
-
-t #Le cambiamos el tipo de la particion a LVM
-1
-8E
-w #Guardamos y salimos
-# Disco de 1GB para swap
-fdisk ${DISCO2}
-n
-p
-
-
-
-t
-1
-82
-w
+# Crear partición en /dev/sdd (1GB para swap)
+echo "Creando partición SWAP en ${DISCO2}..."
+fdisk ${DISCO2} <<EOF
+o           # Crear tabla de particiones nueva (msdos)
+n           # Nueva partición
+p           # Tipo primaria
+1           # Número de partición
+            # Empezar desde el primer sector
++1G         # Tamaño de la partición (1GB)
+t           # Cambiar tipo de partición
+82          # Swap
+w           # Guardar y salir
+EOF
 
 # 3. Crear los volumenes fisicos para cada particion (PV)
 echo "Creando los volumenes fisicos"
