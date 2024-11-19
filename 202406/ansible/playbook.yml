@@ -2,10 +2,10 @@
 - hosts: all
 
   tasks:
-    - include_role:
+    - name: Incluir el rol 2do_parcial
+      include_role:
         name: 2do_parcial
     
-    - name: "Otra tarea"
+    - name: "Mensaje después de ejecutar el rol"
       debug:
-        msg: "Despues de la ejecucion del rol"
-
+        msg: "Tareas del rol ejecutadas correctamente"

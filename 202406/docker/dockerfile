@@ -1,0 +1,8 @@
+# Usar la imagen oficial de nginx
+FROM nginx
+
+# Copiar el contenido del directorio static-html-directory al directorio de nginx
+COPY static-html-directory /usr/share/nginx/html
+
+# Exponer en el puerto 80 (aunque lo hace por default)
+EXPOSE 80

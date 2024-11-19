@@ -1,2 +1,8 @@
 ---
 # vars file for 2do_parcial
+nombre: "Tu-Nombre"
+apellido: "Tu-Apellido"
+division: "Tu-Division"
+ip: "10.0.2.15"
+distribuicion: "Ubuntu 24.04 LTS"
+cores: 2 

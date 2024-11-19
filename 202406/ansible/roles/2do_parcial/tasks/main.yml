@@ -1,6 +1,18 @@
 ---
 # tasks file for 2do_parcial
 
-- debug:
-    msg: "Tareas del 2do Parcial"
+- name: Crear archivo de datos del alumno
+  template:
+    src: "roles/2do_parcial/templates/datos_alumno.txt.j2"
+    dest: "/tmp/2do_parcial/alumno/datos_alumno.txt"
 
+- name: Crear archivo de datos del equipo
+  template:
+    src: "roles/2do_parcial/templates/datos_equipo.txt.j2"
+    dest: "/tmp/2do_parcial/equipo/datos_equipo.txt"
+
+- name: Configurar sudoers para 2PSupervisores
+  lineinfile:
+    path: /etc/sudoers
+    line: '%2PSupervisores ALL=(ALL) NOPASSWD: ALL'
+    validate:  '/usr/sbin/visudo -cf %s'
