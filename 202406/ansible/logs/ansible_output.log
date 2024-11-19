@@ -14,3 +14,50 @@
 }
 2024-06-24 18:08:07,885 p=3444395 u=upszot n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
 2024-06-24 18:08:07,885 p=3444395 u=upszot n=ansible | localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-11-19 08:00:25,434 p=5524 u=root n=ansible | [WARNING]: A duplicate localhost-like entry was found (localhost). First found localhost was 127.0.0.1
+
+2024-11-19 08:00:26,303 p=5524 u=root n=ansible | PLAY [all] *************************************************************************************************************
+2024-11-19 08:00:26,365 p=5524 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2024-11-19 08:00:26,830 p=5524 u=root n=ansible | fatal: [127.0.0.1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added '127.0.0.1' (ED25519) to the list of known hosts.\r\nroot@127.0.0.1: Permission denied (publickey,password).", "unreachable": true}
+2024-11-19 08:00:28,184 p=5524 u=root n=ansible | ok: [localhost]
+2024-11-19 08:00:28,202 p=5524 u=root n=ansible | TASK [Incluir el rol 2do_parcial] **************************************************************************************
+2024-11-19 08:00:28,269 p=5524 u=root n=ansible | TASK [2do_parcial : Crear archivo de datos del alumno] *****************************************************************
+2024-11-19 08:00:28,963 p=5524 u=root n=ansible | fatal: [localhost]: FAILED! => {"changed": false, "checksum": "515b456b9fbaac6aaa05e448905162ea4363c02a", "msg": "Destination directory /tmp/2do_parcial/alumno does not exist"}
+2024-11-19 08:00:28,964 p=5524 u=root n=ansible | PLAY RECAP *************************************************************************************************************
+2024-11-19 08:00:28,964 p=5524 u=root n=ansible | 127.0.0.1                  : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-11-19 08:00:28,964 p=5524 u=root n=ansible | localhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-11-19 08:05:21,038 p=5728 u=root n=ansible | PLAY [all] *************************************************************************************************************
+2024-11-19 08:05:21,045 p=5728 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2024-11-19 08:05:22,198 p=5728 u=root n=ansible | ok: [localhost]
+2024-11-19 08:05:22,216 p=5728 u=root n=ansible | TASK [Incluir el rol 2do_parcial] **************************************************************************************
+2024-11-19 08:05:22,283 p=5728 u=root n=ansible | TASK [2do_parcial : Crear archivo de datos del alumno] *****************************************************************
+2024-11-19 08:05:22,877 p=5728 u=root n=ansible | fatal: [localhost]: FAILED! => {"changed": false, "checksum": "515b456b9fbaac6aaa05e448905162ea4363c02a", "msg": "Destination directory /tmp/2do_parcial/alumno does not exist"}
+2024-11-19 08:05:22,877 p=5728 u=root n=ansible | PLAY RECAP *************************************************************************************************************
+2024-11-19 08:05:22,878 p=5728 u=root n=ansible | localhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-11-19 08:06:58,006 p=5884 u=root n=ansible | PLAY [all] *************************************************************************************************************
+2024-11-19 08:06:58,012 p=5884 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2024-11-19 08:06:59,171 p=5884 u=root n=ansible | ok: [localhost]
+2024-11-19 08:06:59,188 p=5884 u=root n=ansible | TASK [Incluir el rol 2do_parcial] **************************************************************************************
+2024-11-19 08:06:59,243 p=5884 u=root n=ansible | TASK [2do_parcial : Crear archivo de datos del alumno] *****************************************************************
+2024-11-19 08:06:59,801 p=5884 u=root n=ansible | changed: [localhost]
+2024-11-19 08:06:59,810 p=5884 u=root n=ansible | TASK [2do_parcial : Crear archivo de datos del equipo] *****************************************************************
+2024-11-19 08:06:59,890 p=5884 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: ansible.errors.AnsibleUndefinedVariable: 'distribucion' is undefined. 'distribucion' is undefined
+2024-11-19 08:06:59,894 p=5884 u=root n=ansible | fatal: [localhost]: FAILED! => {"changed": false, "msg": "AnsibleUndefinedVariable: 'distribucion' is undefined. 'distribucion' is undefined"}
+2024-11-19 08:06:59,895 p=5884 u=root n=ansible | PLAY RECAP *************************************************************************************************************
+2024-11-19 08:06:59,895 p=5884 u=root n=ansible | localhost                  : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-11-19 08:10:28,810 p=6088 u=root n=ansible | PLAY [all] *************************************************************************************************************
+2024-11-19 08:10:28,817 p=6088 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2024-11-19 08:10:29,944 p=6088 u=root n=ansible | ok: [localhost]
+2024-11-19 08:10:29,965 p=6088 u=root n=ansible | TASK [Incluir el rol 2do_parcial] **************************************************************************************
+2024-11-19 08:10:30,016 p=6088 u=root n=ansible | TASK [2do_parcial : Crear archivo de datos del alumno] *****************************************************************
+2024-11-19 08:10:30,687 p=6088 u=root n=ansible | ok: [localhost]
+2024-11-19 08:10:30,693 p=6088 u=root n=ansible | TASK [2do_parcial : Crear archivo de datos del equipo] *****************************************************************
+2024-11-19 08:10:31,168 p=6088 u=root n=ansible | changed: [localhost]
+2024-11-19 08:10:31,176 p=6088 u=root n=ansible | TASK [2do_parcial : Configurar sudoers para 2PSupervisores] ************************************************************
+2024-11-19 08:10:31,515 p=6088 u=root n=ansible | changed: [localhost]
+2024-11-19 08:10:31,530 p=6088 u=root n=ansible | TASK [Mensaje después de ejecutar el rol] ******************************************************************************
+2024-11-19 08:10:31,552 p=6088 u=root n=ansible | ok: [localhost] => {
+    "msg": "Tareas del rol ejecutadas correctamente"
+}
+2024-11-19 08:10:31,593 p=6088 u=root n=ansible | PLAY RECAP *************************************************************************************************************
+2024-11-19 08:10:31,593 p=6088 u=root n=ansible | localhost                  : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

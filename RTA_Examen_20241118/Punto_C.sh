@@ -19,4 +19,4 @@ echo "La imagen y el contenedor han sido configurados correctamente."
 echo "Puedes acceder a la página en: http://localhost:8080"
 
 echo "Pusheando la imagen a Docker Hub..."
-docker push agussffernandez/web1-Fernandez:latest
+docker push agussffernandez/web1-fernandez:latest

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Variables de los discos
-DISCO1="/dev/sde" #nombre del 1er disco de 2GB
-DISCO2="/dev/sdd" #nombre del 2do disco de 1GB
+DISCO1="/dev/sde1" #nombre del 1er disco de 2GB
+DISCO2="/dev/sdd1" #nombre del 2do disco de 1GB
 # Variables de los volumenes de grupo (VG)
 VG_DATOS="vg_datos"
 VG_TEMP="vg_temp"
@@ -16,43 +16,14 @@ echo "Limpiando las particiones existentes..."
 wipefs --all ${DISCO1}
 wipefs --all ${DISCO2}
 
-# 2. Paticion de discos
-# Crear partición en /dev/sde (2GB para LVM)
-echo "Creando partición LVM en ${DISCO1}..."
-fdisk ${DISCO1} <<EOF
-o           # Crear tabla de particiones nueva (msdos)
-n           # Nueva partición
-p           # Tipo primaria
-1           # Número de partición
-            # Empezar desde el primer sector
-+2G         # Tamaño de la partición (2GB)
-t           # Cambiar tipo de partición
-8e          # LVM (Linux LVM)
-w           # Guardar y salir
-EOF
-
-# Crear partición en /dev/sdd (1GB para swap)
-echo "Creando partición SWAP en ${DISCO2}..."
-fdisk ${DISCO2} <<EOF
-o           # Crear tabla de particiones nueva (msdos)
-n           # Nueva partición
-p           # Tipo primaria
-1           # Número de partición
-            # Empezar desde el primer sector
-+1G         # Tamaño de la partición (1GB)
-t           # Cambiar tipo de partición
-82          # Swap
-w           # Guardar y salir
-EOF
-
 # 3. Crear los volumenes fisicos para cada particion (PV)
 echo "Creando los volumenes fisicos"
-pvcreate ${DISCO1}1 ${DISCO2}1
+pvcreate ${DISCO1} ${DISCO2}
 
 # 4.Crear grupos de volumenes (VG)
 echo "Creando los grupos de volumenes"
-vgcreate ${VG_DATOS} ${DISCO1}1
-vgcreate ${VG_TEMP} ${DISCO2}1
+vgcreate ${VG_DATOS} ${DISCO1}
+vgcreate ${VG_TEMP} ${DISCO2}
 # 5. Crear los volumenes logicos (LV)
 echo "Creando los volumenes logicos"
 # LV para docker 1.5GB en vg_datos
