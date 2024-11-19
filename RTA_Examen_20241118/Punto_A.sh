@@ -2,7 +2,7 @@
 
 # Variables de los discos
 DISCO1="/dev/sdX" #nombre del 1er disco de 2GB
-DISCO2="/dev/sdY" #nombre del 2do disco de 1GB
+DISCO2="/dev/sdd" #nombre del 2do disco de 1GB
 # Variables de los volumenes de grupo (VG)
 VG_DATOS="vg_datos"
 VG_TEMP="vg_temp"
